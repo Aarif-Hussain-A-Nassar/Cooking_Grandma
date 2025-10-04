@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Container } from "./styles";
-
+import Image from "next/image";
 export function Header() {
   const [isActive, setActive] = useState(false);
   const [isLight, setIsLight] = useState(true);
@@ -28,10 +28,8 @@ export function Header() {
     <Container className="header-fixed">
       {/* Logo */}
       <Link href="#home" className="logo">
-        <span>{"<Cooking "}</span>
-        <span>{" Grandma/>"}</span>
+        <Image src="/coconut.svg" alt="Coconut Logo" width={100} height={100} />
       </Link>
-
       {/* Theme toggle */}
       <input
         onChange={toggleTheme}
