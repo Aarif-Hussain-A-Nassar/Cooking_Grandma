@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Container } from "./styles";
 import Image from "next/image";
+import Logo from "../../../../public/Logo.png";
 export function Header() {
   const [isActive, setActive] = useState(false);
   const [isLight, setIsLight] = useState(true);
@@ -28,16 +29,15 @@ export function Header() {
     <Container className="header-fixed">
       {/* Logo */}
       <Link href="#home" className="logo">
-        <Image src="/coconut.svg" alt="Coconut Logo" width={100} height={100} />
+        <Image
+          src={Logo}
+          alt="Coconut Logo"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "auto", height: "50px" }} // only control height
+        />
       </Link>
-      {/* Theme toggle */}
-      <input
-        onChange={toggleTheme}
-        type="checkbox"
-        id="switch"
-        checked={isLight}
-      />
-      <label htmlFor="switch">Toggle</label>
 
       {/* Navigation */}
       <nav className={isActive ? "active" : ""}>
@@ -53,6 +53,14 @@ export function Header() {
         <Link href="#contact" onClick={closeMenu}>
           Contact
         </Link>
+        {/* Theme toggle */}
+        <input
+          onChange={toggleTheme}
+          type="checkbox"
+          id="switch"
+          checked={isLight}
+        />
+        <label htmlFor="switch">Toggle</label>
       </nav>
 
       {/* Hamburger menu */}
