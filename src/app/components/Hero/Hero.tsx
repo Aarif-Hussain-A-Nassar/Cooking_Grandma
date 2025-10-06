@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import HeroImage1 from "../../../../public/HeroImage1.png"; // replace with your image path
+import HeroImage3 from "../../../../public/HeroImage3.png"; // replace with your image path
 import { Container } from "./styles";
 
 export function Hero() {
@@ -48,7 +48,7 @@ export function Hero() {
           }}
         >
           <Image
-            src={HeroImage1}
+            src={HeroImage3}
             alt="Hero Image"
             width={400}
             height={400}
