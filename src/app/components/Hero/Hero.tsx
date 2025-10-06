@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import HeroImage from "../../../../public/HeroImage.png"; // replace with your image path
+import HeroImage3 from "../../../../public/HeroImage3.png"; // replace with your image path
 import { Container } from "./styles";
 
 export function Hero() {
@@ -23,7 +23,14 @@ export function Hero() {
             naturally crafted ingredients — made with love by{" "}
             <b>Cooking Grandma</b>.
           </p>
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              backgroundColor: "#ff4d42",
+              color: "#fff",
+            }}
+          >
             Explore Products
           </motion.button>
         </div>
@@ -41,7 +48,7 @@ export function Hero() {
           }}
         >
           <Image
-            src={HeroImage}
+            src={HeroImage3}
             alt="Hero Image"
             width={400}
             height={400}
