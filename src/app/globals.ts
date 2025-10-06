@@ -2,136 +2,64 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  :root{
+  :root {
     --pink: #ff4d42;
-    --black: #000000;
     --green: #ff4d42;
     --blue: #016fb9;
+    --black: #000000;
+    --white: #ffffff;
+    --heading-color: #fff; /* default dark mode text */
+    --card-bg: #1a1a1a;    /* default dark background */
+    --text-secondary: #ccc;
     scroll-padding-top: 10rem;
-
-    &.light{
-
-      body{
-        transition: 0.5s;
-        background-color: #f5f5f5;
-        color: var(--black);
-      }
-
-      .logo{
-        color: var(--black);
-      }
-
-      header.header-fixed{
-        transition: 0.5s;
-        background-color: #f5f5f550;
-        a{
-          transition: 0.5s;
-          color: black;
-        }
-        .menu,.menu:before, .menu:after{
-          background-color: var(--black); 
-        }
-        .menu.active{
-          background-color: rgba(555,555,555,0);
-        }
-      }
-
-      footer.footer{
-        transition: 0.5s;
-        background-color: rgba(0,0,0,0.1);
-        color: var(--black);
-      }
-
-      form{
-        input,textarea{
-          transition: 0.5s;
-          border: solid 1px var(--black);
-          color: var(--black);
-          &::placeholder{
-            transition: 0.5s;
-            color: var(--black);
-          }
-        }
-      }
-
-    }
   }
 
-  :root {
-  --heading-color: #fff; /* default dark mode */
-  --card-bg: #1a1a1a;
-  --text-secondary: #ccc;
-}
-
-&.light {
-  --heading-color: var(--black);
-  --card-bg: #ffffff;
-  --text-secondary: #555;
-}
-
-&.dark {
-  --heading-color: #ffffff;
-  --card-bg: #121212;
-  --text-secondary: #ccc;
-}
-
-  ul, li {
-    text-decoration: none;
-    list-style: none;
-    margin: 0;
-    padding:0;
+  html.light {
+    --heading-color: #000;
+    --card-bg: #fff;
+    --text-secondary: #555;
   }
 
-  *{
+  html.dark {
+    --heading-color: #fff;
+    --card-bg: #1a1a1a;
+    --text-secondary: #ccc;
+  }
+
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  html{
+  html {
     font-size: 62.5%;
   }
 
-  body{
+  body {
     font-size: 1.6rem;
-    -webkit-font-smoothing: antialiased;
-    background-color: var(--black);
-    color: #FFFF;
-  }
-
-  body, input, textarea, button{
     font-family: 'Red Hat Display', sans-serif;
-    font-weight: 400;
+    background-color: var(--card-bg);
+    color: var(--heading-color);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.5s, color 0.5s;
   }
 
-  a{
+  a {
     text-decoration: none;
+    color: inherit;
   }
 
-  button, .button{
-    border: none;
+  button {
     cursor: pointer;
-    background-color: var(--green);
-    color: #FFFF;
+    border: none;
     border-radius: 2rem;
     font-weight: 500;
-    transition: filter 0.25s;
-    &:hover{
-      filter: brightness(0.8);
-    }
+    transition: filter 0.25s, background-color 0.5s, color 0.5s;
   }
 
-  button:disabled, .button:disabled{
-    filter: brightness(0.8);
-    cursor: not-allowed;
-  }
-
-
-  .logo{
+  .logo {
     font-size: 3rem;
-    color: #FFFF;
-    // &::first-letter{
-    //   color: var(--green);
-    // }
+    color: var(--heading-color);
   }
 `;
