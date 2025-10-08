@@ -17,9 +17,11 @@ export function Header() {
     html.classList.toggle("dark");
     setIsLight(!isLight);
   }
+
   function closeMenu() {
     setActive(false);
   }
+
   useEffect(() => {
     const html = document.getElementsByTagName("html")[0];
     html.classList.add("light"); // default
@@ -28,9 +30,10 @@ export function Header() {
 
   return (
     <Container className="header-fixed">
+      {/* Logo */}
       <motion.div
-        whileHover={{ scale: 1.1, rotate: 3 }} // grows & tilts slightly
-        whileTap={{ scale: 0.95, rotate: -3 }} // shrink & tilt back
+        whileHover={{ scale: 1.1, rotate: 3 }}
+        whileTap={{ scale: 0.95, rotate: -3 }}
         transition={{ type: "spring", stiffness: 200 }}
       >
         <Link href="#home" className="logo">
@@ -40,30 +43,33 @@ export function Header() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "auto", height: "50px" }} // only control height
+            style={{ width: "auto", height: "50px" }}
           />
         </Link>
       </motion.div>
 
-      {/* Navigation with framer-motion */}
-      <nav className={isActive ? "active" : ""}>
-        {["Home", "Products", "About", "Contact"].map((item, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.1, color: "#E31F71" }} // enlarge + color change
-            whileTap={{ scale: 0.95 }} // small shrink when clicked
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Link href={`#${item.toLowerCase()}`} onClick={closeMenu}>
-              {item}
-            </Link>
-          </motion.div>
-        ))}
+      {/* Nav + Theme Toggle + Hamburger */}
+      <div className="right-section">
+        <nav className={isActive ? "active" : ""}>
+          {["Home", "Products", "About", "Contact"].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.1, color: "#E31F71" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Link href={`#${item.toLowerCase()}`} onClick={closeMenu}>
+                {item}
+              </Link>
+            </motion.div>
+          ))}
+        </nav>
 
+        {/* Toggle Button (inside nav for desktop, outside for mobile) */}
         <motion.div
+          className="theme-toggle"
           whileHover={{ scale: 1.1, rotate: -2 }}
           whileTap={{ scale: 0.9, rotate: 2 }}
-          style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
         >
           <input
             type="checkbox"
@@ -71,14 +77,15 @@ export function Header() {
             checked={isLight}
             onChange={toggleTheme}
           />
-          <label htmlFor="switch" style={{ cursor: "pointer" }}></label>
+          <label htmlFor="switch" />
         </motion.div>
-      </nav>
 
-      <div
-        className={isActive ? "menu active" : "menu"}
-        onClick={() => setActive(!isActive)}
-      ></div>
+        {/* Hamburger Menu */}
+        <div
+          className={isActive ? "menu active" : "menu"}
+          onClick={() => setActive(!isActive)}
+        />
+      </div>
     </Container>
   );
 }

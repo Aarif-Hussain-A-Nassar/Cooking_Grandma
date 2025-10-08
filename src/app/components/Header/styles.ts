@@ -7,13 +7,18 @@ export const Container = styled.header`
   padding: 1.8rem 10rem;
   background-color: var(--card-bg);
   backdrop-filter: blur(6px);
-
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   z-index: 1000;
   transition: background-color 0.5s;
+
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+  }
 
   nav {
     display: flex;
@@ -34,12 +39,12 @@ export const Container = styled.header`
     }
   }
 
-  .menu, .menu:before, .menu:after {
-    background-color: var(--heading-color);
-    transition: background-color 0.5s;
+  /* Toggle switch */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
   }
 
-  /* Toggle switch */
   input[type="checkbox"] {
     height: 0;
     width: 0;
@@ -83,39 +88,43 @@ export const Container = styled.header`
     position: relative;
     cursor: pointer;
     display: none;
+    background-color: var(--heading-color);
+    transition: all 0.3s ease;
+  }
 
-    &:before,
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 0.2rem;
-      background: var(--heading-color);
-      transition: all 0.6s;
-    }
+  .menu::before,
+  .menu::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--heading-color);
+    transition: all 0.3s ease;
+  }
 
-    &:before {
-      bottom: 0.5rem;
-    }
+  /* Top line */
+  .menu::before {
+    top: -0.6rem;
+  }
 
-    &:after {
-      top: 0.5rem;
-    }
+  /* Bottom line */
+  .menu::after {
+    top: 0.6rem;
+  }
 
-    &.active:before {
-      bottom: 0;
-      transform: rotate(45deg);
-    }
+  /* When menu is active, transform into X */
+  .menu.active {
+    background-color: transparent;
+  }
 
-    &.active:after {
-      top: 0;
-      transform: rotate(-45deg);
-    }
+  .menu.active::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
 
-    &.active {
-      background-color: transparent;
-    }
+  .menu.active::after {
+    transform: rotate(-45deg);
+    top: 0;
   }
 
   /* Responsive */
@@ -124,6 +133,21 @@ export const Container = styled.header`
 
     .menu {
       display: block;
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Move toggle outside menu */
+    .theme-toggle {
+      order: 1; /* appears before hamburger */
+    }
+
+    .menu {
+      order: 2;
     }
 
     nav {
