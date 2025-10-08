@@ -15,13 +15,11 @@ export function Hero() {
         transition={{ duration: 0.8, type: "spring" }}
       >
         <div className="text">
-          <h1>
-            Feel the <span>Freshness</span>
-          </h1>
+          <h1>Feel the Freshness</h1>
           <p>
             Taste the authentic flavors of Kerala with our premium range of
             naturally crafted ingredients — made with love by{" "}
-            <b>Cooking Grandma</b>.
+            <b style={{ color: "#ff4d42" }}>Cooking Grandma</b>.
           </p>
           <motion.button
             whileHover={{ scale: 1.1 }}
