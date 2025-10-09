@@ -1,8 +1,11 @@
+// layout.tsx (Server Component)
 import type { Metadata } from "next";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { GlobalStyle } from "./globals";
+import ClientWrapper from "./ClientWrapper";
+
 
 export const metadata: Metadata = {
   title: "Cooking Grandma",
@@ -19,10 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <GlobalStyle />
-        <Header />
-        <main>{children}</main>
-        <Analytics />
-        <Footer />
+        <ClientWrapper>
+          <Header />
+          <main>{children}</main>
+          <Analytics />
+          <Footer />
+        </ClientWrapper>
       </body>
     </html>
   );
