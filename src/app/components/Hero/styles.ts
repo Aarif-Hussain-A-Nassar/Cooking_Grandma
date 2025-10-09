@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
+  position: relative;
+  z-index: 2; /* ✅ keep hero above background but below overlayed UI */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: calc(var(--header-height, 6rem) + 1rem) 2rem 4rem 2rem;
+  padding: calc(var(--header-height, 6rem) + 2rem) 2rem 4rem 2rem;
   color: var(--heading-color);
   transition: all 0.3s ease;
 
@@ -19,9 +21,11 @@ export const Container = styled.section`
 
     .text {
       flex: 1;
+      z-index: 3; /* ensures text is always above the image */
+      position: relative;
 
       h1 {
-        font-size: clamp(3rem, 5vw, 5rem); /* Scales smoothly across devices */
+        font-size: clamp(3rem, 5vw, 5rem);
         font-weight: 800;
         margin-bottom: 1.5rem;
         line-height: 1.2;
@@ -63,16 +67,18 @@ export const Container = styled.section`
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      z-index: 3000; /* ✅ ensures image is ABOVE navbar when animating */
 
       img {
         width: 90%;
         height: auto;
         border-radius: 12px;
+        position: relative;
       }
     }
   }
 
-  /* ✅ Tablet */
   @media (max-width: 992px) {
     .hero-content {
       flex-direction: column-reverse;
@@ -96,6 +102,10 @@ export const Container = styled.section`
         }
       }
 
+      .image {
+        z-index: 2000; /* ✅ also above navbar in mobile */
+      }
+
       .image img {
         width: 70%;
         max-width: 400px;
@@ -103,7 +113,6 @@ export const Container = styled.section`
     }
   }
 
-  /* ✅ Mobile */
   @media (max-width: 600px) {
     padding: 2rem 1rem;
 
@@ -131,6 +140,15 @@ export const Container = styled.section`
       .image img {
         width: 85%;
       }
+    }
+  }
+  @media (max-width: 992px) {
+    .image {
+      z-index: 3000;
+      pointer-events: none;
+    }
+    .image img {
+      pointer-events: auto;
     }
   }
 `;

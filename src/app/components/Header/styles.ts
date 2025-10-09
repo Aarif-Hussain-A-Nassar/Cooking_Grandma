@@ -195,4 +195,36 @@ export const Container = styled.header`
       left: 4px;
     }
   }
+  @media (max-width: 960px) {
+    nav {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background-color: var(--card-bg);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999; /* ✅ menu will be on top */
+      transition: opacity 0.25s;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      a {
+        font-size: 1.5rem;
+        padding: 1rem 0;
+      }
+    }
+
+    .menu {
+      display: block;
+      z-index: 10000; /* ✅ ensure hamburger is clickable on top */
+    }
+  }
 `;
