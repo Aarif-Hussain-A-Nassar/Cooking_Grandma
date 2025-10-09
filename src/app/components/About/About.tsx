@@ -4,35 +4,59 @@ import { motion } from "framer-motion";
 import { Section, Content } from "./styles";
 
 export default function About() {
+  const paragraphVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <Section>
-      <motion.div
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <Content>
-          <h1>About Cooking Grandma</h1>
+      <Content>
+        {/* Heading Animation */}
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          About Cooking Grandma
+        </motion.h1>
 
-          <p>
-            Cooking Grandma was born from one beautiful inspiration — our grandmother.
-            Her warm smile in our logo reminds us every day of the love, wisdom, and
-            traditional taste that filled our childhood.
-          </p>
+        {/* Paragraph 1 */}
+        <motion.p
+          variants={paragraphVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        >
+          Cooking Grandma was born from one beautiful inspiration — our grandmother.
+          Her warm smile in our <br /> logo reminds us every day of the love, wisdom, and
+          traditional taste that filled our childhood.
+        </motion.p>
 
-          <p>
-            Founded by three friends — <span>Akshay</span>, <span>Arjun</span>, and{" "}
-            <span>Vishnu</span> — Cooking Grandma carries a simple mission: to make
-            cooking easier while keeping the soulful taste of home alive.
-          </p>
+        {/* Paragraph 2 */}
+        <motion.p
+          variants={paragraphVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
+        >
+          Founded by three friends — <span>Akshay</span>, <span>Arjun</span>, and{" "}
+          <span>Vishnu</span> — Cooking Grandma carries a simple mission: <br /> To make
+          cooking easier while keeping the soulful taste of home alive.
+        </motion.p>
 
-          <p>
-            Every packet we create is more than just an ingredient — it’s a sprinkle of
-            nostalgia, a dash of love, and the comforting aroma of grandma’s kitchen,
-            now delivered straight to yours.
-          </p>
-        </Content>
-      </motion.div>
+        {/* Paragraph 3 */}
+        <motion.p
+          variants={paragraphVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.8, ease: "easeOut", delay: 1.1 }}
+        >
+          Every packet we create is more than just an ingredient — it’s a sprinkle of
+          nostalgia, a dash of love, <br /> and the comforting aroma of grandma’s kitchen,
+          now delivered straight to yours.
+        </motion.p>
+      </Content>
     </Section>
   );
 }
