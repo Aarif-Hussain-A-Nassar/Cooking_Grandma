@@ -67,8 +67,9 @@ export function Hero() {
               backgroundColor: "#ff4d42",
               color: "#fff",
               border: "none",
-              padding: "0.75rem 1.5rem",
-              borderRadius: "8px",
+              padding: "1rem 2.5rem",
+              fontSize: "1.25rem",
+              borderRadius: "12px",
               cursor: "pointer",
             }}
           >
