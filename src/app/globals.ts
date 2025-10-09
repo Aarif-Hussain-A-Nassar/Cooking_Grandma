@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     --black: #000000;
     --white: #ffffff;
     --heading-color: #fff; /* default dark mode text */
-    --card-bg: #1a1a1a;    /* default dark background */
+    --card-bg: #000000;    /* default dark background (pitch black) */
     --text-secondary: #ccc;
     scroll-padding-top: 10rem;
   }
@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 
   html.dark {
     --heading-color: #fff;
-    --card-bg: #1a1a1a;
+    --card-bg: #000000;  /* pitch black */
     --text-secondary: #ccc;
   }
 
