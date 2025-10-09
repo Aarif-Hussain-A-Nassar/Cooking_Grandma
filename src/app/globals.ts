@@ -57,7 +57,6 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     transition: filter 0.25s, background-color 0.5s, color 0.5s;
   }
-
   .logo {
     font-size: 3rem;
     color: var(--heading-color);
