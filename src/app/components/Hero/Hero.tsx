@@ -49,10 +49,11 @@ export function Hero() {
         initial="hidden"
         whileInView="visible"
         variants={containerVariants}
-        viewport={{ once: true }}
+        viewport={{ amount: 0.2 }}
       >
         <div className="text">
           <motion.h1 variants={textVariants}>Feel the Freshness</motion.h1>
+
           <motion.p variants={textVariants}>
             Taste the authentic flavors of Kerala with our premium range of
             naturally crafted ingredients — made with love by{" "}
