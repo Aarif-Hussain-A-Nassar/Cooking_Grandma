@@ -16,11 +16,11 @@ export const Section = styled.section`
   @media (max-width: 900px) {
     flex-direction: column;
     text-align: center;
-    padding: 4vh 4vw; /* reduce padding */
+    padding: 8vh 4vw 4vh 4vw; /* reduce padding */
     gap: 2rem; /* smaller gap between text and image */
-    align-items: center;/* ✅ remove vertical centering */
+    align-items: center; /* ✅ remove vertical centering */
     min-height: auto; /* ✅ fit to content */
-     margin-top: 7rem;
+    margin-top: 7rem;
   }
 `;
 
