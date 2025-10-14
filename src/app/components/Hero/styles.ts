@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   position: relative;
-  z-index: 2; /* ✅ keep hero above background but below overlayed UI */
+  z-index: 2; /* keep hero above background but below overlayed UI */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,11 +21,11 @@ export const Container = styled.section`
 
     .text {
       flex: 1;
-      z-index: 3; /* ensures text is always above the image */
+      z-index: 3;
       position: relative;
 
       h1 {
-        font-size: clamp(3rem, 5vw, 5rem);
+        font-size: clamp(3rem, 6vw, 6rem); /* 🔹 larger on big screens */
         font-weight: 800;
         margin-bottom: 1.5rem;
         line-height: 1.2;
@@ -33,7 +33,7 @@ export const Container = styled.section`
       }
 
       p {
-        font-size: clamp(1.1rem, 2vw, 1.5rem);
+        font-size: clamp(1.3rem, 2.5vw, 1.8rem); /* 🔹 larger paragraphs */
         line-height: 1.8;
         margin-bottom: 2.2rem;
         color: var(--text-secondary, #555);
@@ -68,7 +68,7 @@ export const Container = styled.section`
       justify-content: center;
       align-items: center;
       position: relative;
-      z-index: 3000; /* ✅ ensures image is ABOVE navbar when animating */
+      z-index: 3000;
 
       img {
         width: 90%;
@@ -87,11 +87,11 @@ export const Container = styled.section`
 
       .text {
         h1 {
-          font-size: 3rem;
+          font-size: clamp(2.5rem, 5vw, 4rem); /* smaller on medium screens */
         }
 
         p {
-          font-size: 1.2rem;
+          font-size: clamp(1.2rem, 2vw, 1.5rem);
           max-width: 90%;
           margin: 0 auto 2rem;
         }
@@ -103,7 +103,7 @@ export const Container = styled.section`
       }
 
       .image {
-        z-index: 2000; /* ✅ also above navbar in mobile */
+        z-index: 2000;
       }
 
       .image img {
@@ -121,7 +121,7 @@ export const Container = styled.section`
 
       .text {
         h1 {
-          font-size: 2.2rem;
+          font-size: 2.2rem; /* default mobile size */
           line-height: 1.3;
         }
 
@@ -142,6 +142,7 @@ export const Container = styled.section`
       }
     }
   }
+
   @media (max-width: 992px) {
     .image {
       z-index: 3000;

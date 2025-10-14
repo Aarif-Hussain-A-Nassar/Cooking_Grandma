@@ -46,21 +46,22 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: var(--heading-color);  /* ✅ use theme variable */
+  color: var(--heading-color);
   text-align: left;
 
   h1 {
-    font-size: clamp(1.8rem, 3vw, 3rem);
+    /* Larger text on big screens, standard on small screens */
+    font-size: clamp(2rem, 5vw, 5rem); /* min 2rem, scales with viewport, max 5rem */
     font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--heading-color); /* ✅ use theme variable */
+    margin-bottom: 2.5rem;
+    color: var(--heading-color);
   }
 
   p {
-    font-size: clamp(1rem, 1.6vw, 1.2rem);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    color: var(--heading-color); /* ✅ use theme variable */
+    font-size: clamp(1.2rem, 2vw, 1.6rem); /* min 1.2rem, scales, max 1.6rem */
+    line-height: 1.8;
+    margin-bottom: 1.8rem;
+    color: var(--heading-color);
 
     span {
       font-weight: 600;
@@ -71,12 +72,11 @@ export const Content = styled.div`
     text-align: center;
 
     h1 {
-      font-size: 2rem;
+      font-size: 2rem; /* standard size on mobile */
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.2rem; /* standard size on mobile */
     }
   }
 `;
-

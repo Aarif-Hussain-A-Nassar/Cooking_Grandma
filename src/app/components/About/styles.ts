@@ -52,16 +52,25 @@ export const Content = styled.div`
   color: #ffffff;
 
   h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    /* Larger text on big screens, standard on small screens */
+    font-size: clamp(
+      2.5rem,
+      5vw,
+      5rem
+    ); /* min 2.5rem, scales with viewport, max 5rem */
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     line-height: 1.2;
   }
 
   p {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    font-size: clamp(
+      1.5rem,
+      2.5vw,
+      1.8rem
+    ); /* min 1.5rem, scales, max 1.8rem */
+    line-height: 1.8;
+    margin-bottom: 2rem;
 
     span {
       font-weight: 600;
@@ -71,6 +80,14 @@ export const Content = styled.div`
 
   @media (max-width: 768px) {
     text-align: center;
+
+    h1 {
+      font-size: 2rem; /* standard size for mobile */
+    }
+
+    p {
+      font-size: 1.2rem; /* standard size for mobile */
+    }
   }
 `;
 
