@@ -11,11 +11,13 @@ export const Section = styled.section`
   background-color: #fff;
   color: #000;
   gap: 5vw;
+  overflow-x: hidden; /* ✅ prevent motion overflow scroll */
 
   @media (max-width: 900px) {
     flex-direction: column;
     text-align: center;
     padding: 6vh 4vw;
+    gap: 4vh;
   }
 `;
 
@@ -24,12 +26,18 @@ export const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 
   .grandma-image {
     width: 100%;
     height: auto;
     max-width: 450px;
     border-radius: 20px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 900px) {
+    max-width: 90%;
   }
 `;
 
@@ -38,8 +46,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
   color: #000;
+  text-align: left;
 
   h1 {
     font-size: clamp(1.8rem, 3vw, 3rem);

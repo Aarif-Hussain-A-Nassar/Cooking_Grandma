@@ -14,24 +14,25 @@ export default function Who() {
   return (
     <Section id="who">
       {/* Left Image Side */}
-      <ImageWrapper>
-        <motion.div
-          initial={{ opacity: 0, x: -100 }} // slide from left
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ amount: 0.3 }}
-        >
-          <Image
-            src={HeroImage}
-            alt="Cooking Grandma"
-            width={500}
-            height={500}
-            className="grandma-image"
-            priority
-          />
-        </motion.div>
-      </ImageWrapper>
-
+      <motion.div style={{ width: "50%", overflow: "hidden" }}>
+        <ImageWrapper>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }} // slide from left
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ amount: 0.3 }}
+          >
+            <Image
+              src={HeroImage}
+              alt="Cooking Grandma"
+              width={500}
+              height={500}
+              className="grandma-image"
+              priority
+            />
+          </motion.div>
+        </ImageWrapper>
+      </motion.div>
       {/* Right Content Side */}
       <Content>
         <motion.h1

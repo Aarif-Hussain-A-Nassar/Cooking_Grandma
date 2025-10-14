@@ -3,19 +3,22 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  min-height: 100vh;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background-color: #ff4d42;
   color: #fff;
   padding: 5vh 8vw;
-  overflow: hidden;
   gap: 4vw;
+  overflow-x: hidden;
+  min-height: 100vh;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 4vh 5vw;
+    justify-content: flex-start;
+    padding: 6vh 5vw;
+    text-align: center;
   }
 `;
 
@@ -25,6 +28,10 @@ export const Left = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const Right = styled.div`
@@ -34,17 +41,15 @@ export const Right = styled.div`
   justify-content: center;
   width: 100%;
 
-  /* On small screens, make sure it expands fully */
   @media (max-width: 768px) {
     margin-top: 2rem;
-    width: 100%;
+    justify-content: center;
   }
 `;
 
 export const Content = styled.div`
   max-width: 600px;
   color: #ffffff;
-  text-align: left;
 
   h1 {
     font-size: clamp(2rem, 4vw, 3rem);
@@ -72,18 +77,23 @@ export const Content = styled.div`
 export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 70vh;
+  max-width: 500px;
+  aspect-ratio: 1 / 1; /* ✅ ensures responsive square container */
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-  /* Make sure the image stays visible on mobile */
+  img {
+    object-fit: cover;
+  }
+
   @media (max-width: 768px) {
-    height: 55vh;
-    width: 100%;
+    margin-top: 2rem;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
   }
 
   @media (max-width: 480px) {
-    height: 50vh;
+    max-width: 300px;
   }
 `;
