@@ -3,76 +3,97 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ff4d42;
+  color: #fff;
+  padding: 5vh 8vw;
+  gap: 4vw;
+  overflow-x: hidden;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 6vh 5vw;
+    text-align: center;
+  }
+`;
+
+export const Left = styled.div`
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 5vh 8vw;
+  width: 100%;
 
-  /* Solid pitch black background */
-  background-color: #ff4d42; 
-  position: relative;
-  color: #fff;
-  overflow: hidden;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+`;
 
-  /* Remove the overlay since we don't need it with solid black */
-  &::before {
-    content: none;
+export const Right = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+    justify-content: center;
   }
 `;
 
 export const Content = styled.div`
-  position: relative; /* ensures content stays above background */
-  z-index: 2;
-  max-width: 90vw;
-  text-align: left;
+  max-width: 600px;
   color: #ffffff;
 
   h1 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    margin-bottom: 4vh;
+    margin-bottom: 2rem;
     line-height: 1.2;
   }
 
   p {
-    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+    font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.7;
-    color: #ffffff;
-    margin-bottom: 3vh;
+    margin-bottom: 1.5rem;
 
     span {
       font-weight: 600;
-      color: #ffffff;
+      color: #fff;
     }
   }
 
   @media (max-width: 768px) {
-    p {
-      line-height: 1.6;
-      margin-bottom: 2.5vh;
-    }
+    text-align: center;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1; /* ✅ ensures responsive square container */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  img {
+    object-fit: cover;
   }
 
-  @media (min-width: 1440px) {
-    max-width: 1000px;
-
-    h1 {
-      font-size: 2.2vw;
-    }
-
-    p {
-      font-size: 1.1vw;
-    }
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
   }
 
   @media (max-width: 480px) {
-    h1 {
-      font-size: 6vw;
-    }
-
-    p {
-      font-size: 4vw;
-    }
+    max-width: 300px;
   }
 `;
