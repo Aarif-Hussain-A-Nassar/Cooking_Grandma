@@ -8,8 +8,8 @@ export const Section = styled.section`
   justify-content: center;
   padding: 8vh 8vw;
   min-height: 100vh;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--card-bg);
+  color: var(--heading-color);
   gap: 5vw;
   overflow-x: hidden; /* ✅ prevent motion overflow scroll */
 
@@ -46,19 +46,21 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #000;
+  color: var(--heading-color);  /* ✅ use theme variable */
   text-align: left;
 
   h1 {
     font-size: clamp(1.8rem, 3vw, 3rem);
     font-weight: 700;
     margin-bottom: 2rem;
+    color: var(--heading-color); /* ✅ use theme variable */
   }
 
   p {
     font-size: clamp(1rem, 1.6vw, 1.2rem);
     line-height: 1.7;
     margin-bottom: 1.5rem;
+    color: var(--heading-color); /* ✅ use theme variable */
 
     span {
       font-weight: 600;
@@ -77,3 +79,4 @@ export const Content = styled.div`
     }
   }
 `;
+
