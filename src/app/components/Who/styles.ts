@@ -11,13 +11,15 @@ export const Section = styled.section`
   background-color: var(--card-bg);
   color: var(--heading-color);
   gap: 5vw;
-  overflow-x: hidden; /* ✅ prevent motion overflow scroll */
+  overflow-x: hidden;
 
   @media (max-width: 900px) {
     flex-direction: column;
     text-align: center;
-    padding: 6vh 4vw;
-    gap: 4vh;
+    padding: 4vh 4vw; /* reduce padding */
+    gap: 2rem; /* smaller gap between text and image */
+    align-items: center;/* ✅ remove vertical centering */
+    min-height: auto; /* ✅ fit to content */
   }
 `;
 
@@ -51,7 +53,11 @@ export const Content = styled.div`
 
   h1 {
     /* Larger text on big screens, standard on small screens */
-    font-size: clamp(2rem, 5vw, 5rem); /* min 2rem, scales with viewport, max 5rem */
+    font-size: clamp(
+      2rem,
+      5vw,
+      5rem
+    ); /* min 2rem, scales with viewport, max 5rem */
     font-weight: 700;
     margin-bottom: 2.5rem;
     color: var(--heading-color);
