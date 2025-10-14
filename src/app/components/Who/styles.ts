@@ -16,10 +16,10 @@ export const Section = styled.section`
   @media (max-width: 900px) {
     flex-direction: column;
     text-align: center;
-    padding: 8vh 4vw 4vh 4vw; /* reduce padding */
-    gap: 2rem; /* smaller gap between text and image */
-    align-items: center; /* ✅ remove vertical centering */
-    min-height: auto; /* ✅ fit to content */
+    padding: 8vh 4vw 4vh 4vw;
+    gap: 2.5rem; /* slightly bigger gap */
+    align-items: center;
+    min-height: auto;
     margin-top: 7rem;
   }
 `;
@@ -40,7 +40,7 @@ export const ImageWrapper = styled.div`
   }
 
   @media (max-width: 900px) {
-    max-width: 90%;
+    max-width: 95%; /* slightly bigger on mobile */
   }
 `;
 
@@ -53,19 +53,14 @@ export const Content = styled.div`
   text-align: left;
 
   h1 {
-    /* Larger text on big screens, standard on small screens */
-    font-size: clamp(
-      2rem,
-      5vw,
-      5rem
-    ); /* min 2rem, scales with viewport, max 5rem */
+    font-size: clamp(2rem, 5vw, 5rem);
     font-weight: 700;
     margin-bottom: 2.5rem;
     color: var(--heading-color);
   }
 
   p {
-    font-size: clamp(1.2rem, 2vw, 1.8rem); /* min 1.2rem, scales, max 1.8rem */
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
     line-height: 1.8;
     margin-bottom: 1.8rem;
     color: var(--heading-color);
@@ -79,11 +74,21 @@ export const Content = styled.div`
     text-align: center;
 
     h1 {
-      font-size: 2rem; /* standard size on mobile */
+      font-size: clamp(2.2rem, 5vw, 2.8rem); /* slightly bigger on mobile */
     }
 
     p {
-      font-size: 1.2rem; /* standard size on mobile */
+      font-size: clamp(1.4rem, 2.5vw, 1.6rem); /* bigger and more readable */
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: clamp(2rem, 4.5vw, 2.5rem); /* very small screens */
+    }
+
+    p {
+      font-size: clamp(1.3rem, 4vw, 1.5rem);
     }
   }
 `;
