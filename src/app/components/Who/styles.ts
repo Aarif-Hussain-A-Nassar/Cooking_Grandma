@@ -20,6 +20,7 @@ export const Section = styled.section`
     gap: 2rem; /* smaller gap between text and image */
     align-items: center;/* ✅ remove vertical centering */
     min-height: auto; /* ✅ fit to content */
+     margin-top: 7rem;
   }
 `;
 
