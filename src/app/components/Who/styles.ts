@@ -58,7 +58,7 @@ export const Content = styled.div`
   }
 
   p {
-    font-size: clamp(1.2rem, 2vw, 1.6rem); /* min 1.2rem, scales, max 1.6rem */
+    font-size: clamp(1.2rem, 2vw, 1.8rem); /* min 1.2rem, scales, max 1.8rem */
     line-height: 1.8;
     margin-bottom: 1.8rem;
     color: var(--heading-color);
