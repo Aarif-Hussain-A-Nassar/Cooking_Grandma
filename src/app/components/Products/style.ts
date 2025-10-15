@@ -10,7 +10,8 @@ export const Section = styled.section`
   gap: 4rem;
   padding: 10vh 8vw;
   flex-wrap: wrap;
-  background-color: #fff5f0;
+  background-color: var(--card-bg);
+  transition: background-color 0.4s ease, color 0.4s ease;
 
   @media (max-width: 1024px) {
     gap: 3rem;
@@ -40,7 +41,6 @@ export const CardContainer = styled(motion.div)<{ $flipped: boolean }>`
     transform-style: preserve-3d;
     transition: transform 0.8s ease-in-out;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    background-color: #fff;
 
     ${({ $flipped }) =>
       $flipped &&
@@ -62,26 +62,30 @@ export const CardContainer = styled(motion.div)<{ $flipped: boolean }>`
     justify-content: center;
     padding: 1.8rem;
     text-align: center;
+    transition: color 0.4s ease;
   }
 
+  /* ✅ Always pink/red (doesn't change with theme) */
   .front {
-    background: #fff;
+    background-color: #ff4d42;
   }
 
   .back {
-    background: #ffebe9;
+    background-color: #ff4d42;
     transform: rotateY(180deg);
   }
 
   h3 {
     font-size: 1.6rem;
-    color: #222;
+    color: #fff; /* ✅ keep white text for readability */
     margin-bottom: 0.8rem;
+    transition: color 0.4s ease;
   }
 
   p {
     font-size: 1rem;
-    color: #555;
+    color: #fff;
+    opacity: 0.9;
     line-height: 1.5;
     max-width: 260px;
   }
@@ -95,41 +99,28 @@ export const CardContainer = styled(motion.div)<{ $flipped: boolean }>`
   button {
     margin-top: 10px;
     padding: 10px 16px;
-    background-color: #ff6347;
-    color: white;
+    background-color: #fff;
+    color: #ff4d42;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
     font-size: 1rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 
     &:hover {
-      background-color: #e6523d;
+      filter: brightness(0.9);
     }
   }
 
-  /* Responsive font scaling */
   @media (max-width: 1024px) {
     width: 300px;
     height: 420px;
-    h3 {
-      font-size: 1.5rem;
-    }
-    p {
-      font-size: 1rem;
-    }
   }
 
   @media (max-width: 768px) {
     width: 280px;
     height: 380px;
-    h3 {
-      font-size: 1.4rem;
-    }
-    p {
-      font-size: 1rem;
-    }
   }
 
   @media (max-width: 480px) {
@@ -148,7 +139,6 @@ export const CardContainer = styled(motion.div)<{ $flipped: boolean }>`
   }
 `;
 
-/* Smooth slide-in from left animation */
 export const slideInLeft: Variants = {
   hidden: { opacity: 0, x: -120 },
   visible: {

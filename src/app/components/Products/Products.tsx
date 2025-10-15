@@ -4,7 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Section, CardContainer, slideInLeft } from "./style";
-import TamarindImg from "../../../../public/tamarind back.jpg";
+import Tamarind from "../../../../public/Tamarind1.svg"
+import Tamarind12 from "../../../../public/Tamarind.png"
 import CoconutImg from "../../../../public/coconut.png";
 
 export default function Products() {
@@ -35,10 +36,10 @@ export default function Products() {
           <div className="card">
             <div className="front">
               <Image
-                src={TamarindImg}
+                src={Tamarind12}
                 alt="Tamarind"
-                width={200}
-                height={200}
+                width={175}
+                height={175}
                 className="product-img"
               />
               <h3>Tamarind</h3>
