@@ -51,7 +51,7 @@ export function Header() {
       {/* Nav + Theme Toggle + Hamburger */}
       <div className="right-section">
         <nav className={isActive ? "active" : ""}>
-          {["Home", "Products", "About", "Contact"].map((item, i) => (
+          {["Home", "About", "Products", "Contact"].map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.1, color: "#E31F71" }}
