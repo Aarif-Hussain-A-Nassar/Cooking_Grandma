@@ -41,6 +41,21 @@ export const CardContainer = styled(motion.div)<{ $flipped: boolean }>`
     transform-style: preserve-3d;
     transition: transform 0.8s ease-in-out;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+ .button-group {
+  display: flex;       /* horizontal layout */
+  flex-direction: row; /* ensure row */
+  gap: 10px;           /* space between buttons */
+  margin-top: 10px;
+  width: 100%;         /* optional: full width so buttons align nicely */
+  justify-content: center; /* center them horizontally */
+
+  button {
+    flex: 1;          /* equal width buttons */
+    max-width: 140px; /* optional: cap width */
+  }
+}
+
 
     ${({ $flipped }) =>
       $flipped &&
