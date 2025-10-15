@@ -1,4 +1,5 @@
 import About from "../About/About";
+import Contact from "../Contact/Contact";
 import { Hero } from "../Hero/Hero";
 import Products from "../Products/Products";
 import Who from "../Who/Who";
@@ -11,6 +12,7 @@ export const Main = () => {
       <About />
       <Products />
       <Who />
+      <Contact/>
     </MainContainer>
   );
 };

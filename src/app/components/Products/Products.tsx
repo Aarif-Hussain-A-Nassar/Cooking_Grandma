@@ -18,12 +18,12 @@ export default function Products() {
   // ✅ Detect screen size on mount
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // Run once on load
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Floating animation config (adjusts based on screen)
+  // ✅ Floating animation config
   const floatingAnimation = useMemo(
     () => ({
       animate: { y: [0, isMobile ? -12 : -20, 0] },
@@ -43,7 +43,6 @@ export default function Products() {
 
   return (
     <>
-      {" "}
       <ProductsHeading>Products</ProductsHeading>
       <Section>
         {/* 🌿 Tamarind Card */}
@@ -61,7 +60,6 @@ export default function Products() {
           >
             <div className="card">
               <div className="front">
-                {/* 🍃 Floating Image */}
                 <motion.div
                   {...floatingAnimation}
                   style={{
@@ -83,7 +81,13 @@ export default function Products() {
                   Tangy & aromatic tamarind for authentic recipes. Naturally
                   sun-dried and hand-picked for rich flavor.
                 </p>
-                {!flipped.tamarind && <button>Know More</button>}
+
+                {!flipped.tamarind && (
+                  <div className="button-group">
+                    <button>Know More</button>
+                    <button>Buy Now</button>
+                  </div>
+                )}
               </div>
 
               <div className="back">
@@ -115,7 +119,6 @@ export default function Products() {
           >
             <div className="card">
               <div className="front">
-                {/* 🌴 Floating Image */}
                 <motion.div
                   {...floatingAnimation}
                   style={{
@@ -137,7 +140,13 @@ export default function Products() {
                   Crunchy roasted coconut for sweet and savory dishes. Adds a
                   tropical, nutty richness to every recipe.
                 </p>
-                {!flipped.coconut && <button>Know More</button>}
+
+                {!flipped.coconut && (
+                  <div className="button-group">
+                    <button>Know More</button>
+                    <button>Buy Now</button>
+                  </div>
+                )}
               </div>
 
               <div className="back">
