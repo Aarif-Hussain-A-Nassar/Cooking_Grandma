@@ -8,8 +8,8 @@ export const Section = styled.section`
   justify-content: center;
   padding: 8vh 8vw;
   min-height: 100vh;
-  background-color: var(--card-bg);
-  color: var(--heading-color);
+  background-color: transparent; /* inherit from parent */
+  color: inherit; /* inherit text color from parent */
   gap: 5vw;
   overflow-x: hidden;
 
@@ -17,7 +17,7 @@ export const Section = styled.section`
     flex-direction: column;
     text-align: center;
     padding: 8vh 4vw 4vh 4vw;
-    gap: 2.5rem; /* slightly bigger gap */
+    gap: 2.5rem;
     align-items: center;
     min-height: auto;
     margin-top: 7rem;

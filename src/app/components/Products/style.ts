@@ -10,8 +10,8 @@ export const Section = styled.section`
   gap: 4rem;
   padding: 10vh 8vw;
   flex-wrap: wrap;
-  background-color: var(--card-bg);
-  transition: background-color 0.4s ease, color 0.4s ease;
+  background-color: transparent; /* inherit from parent */
+  transition: none; /* remove delays */
 
   @media (max-width: 1024px) {
     gap: 3rem;
