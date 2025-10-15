@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Section, CardContainer, slideInLeft } from "./style";
-import Tamarind from "../../../../public/Tamarind1.svg"
-import Tamarind12 from "../../../../public/Tamarind.png"
+import Tamarind12 from "../../../../public/Tamarind.png";
 import CoconutImg from "../../../../public/coconut.png";
 
 export default function Products() {
@@ -14,13 +13,37 @@ export default function Products() {
     coconut: false,
   });
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  // ✅ Detect screen size on mount
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // Run once on load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ✅ Floating animation config (adjusts based on screen)
+  const floatingAnimation = useMemo(
+    () => ({
+      animate: { y: [0, isMobile ? -12 : -20, 0] },
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        repeatType: "loop" as const,
+        ease: "easeInOut" as const,
+      },
+    }),
+    [isMobile]
+  );
+
   const handleFlip = (id: string) => {
     setFlipped((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
   return (
     <Section>
-      {/* Tamarind Card */}
+      {/* 🌿 Tamarind Card */}
       <motion.div
         variants={slideInLeft}
         initial="hidden"
@@ -35,13 +58,23 @@ export default function Products() {
         >
           <div className="card">
             <div className="front">
-              <Image
-                src={Tamarind12}
-                alt="Tamarind"
-                width={175}
-                height={175}
-                className="product-img"
-              />
+              {/* 🍃 Floating Image */}
+              <motion.div
+                {...floatingAnimation}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Image
+                  src={Tamarind12}
+                  alt="Tamarind"
+                  width={175}
+                  height={175}
+                  className="product-img"
+                />
+              </motion.div>
+
               <h3>Tamarind</h3>
               <p>
                 Tangy & aromatic tamarind for authentic recipes. Naturally
@@ -62,7 +95,7 @@ export default function Products() {
         </CardContainer>
       </motion.div>
 
-      {/* Coconut Card */}
+      {/* 🥥 Coconut Card */}
       <motion.div
         variants={slideInLeft}
         initial="hidden"
@@ -78,13 +111,23 @@ export default function Products() {
         >
           <div className="card">
             <div className="front">
-              <Image
-                src={CoconutImg}
-                alt="Roasted Coconut"
-                width={200}
-                height={200}
-                className="product-img"
-              />
+              {/* 🌴 Floating Image */}
+              <motion.div
+                {...floatingAnimation}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Image
+                  src={CoconutImg}
+                  alt="Roasted Coconut"
+                  width={200}
+                  height={200}
+                  className="product-img"
+                />
+              </motion.div>
+
               <h3>Roasted Coconut</h3>
               <p>
                 Crunchy roasted coconut for sweet and savory dishes. Adds a
