@@ -8,8 +8,10 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff5f0;
+  background-color: var(--card-bg);
+  color: var(--heading-color);
   padding: 8vh 8vw;
+  transition: background-color 0.5s, color 0.5s;
 
   h2 {
     font-size: 2.5rem;
@@ -25,27 +27,39 @@ export const FormContainer = styled.form`
   gap: 1.2rem;
   width: 100%;
   max-width: 600px;
-  background: white;
+  background: var(--card-bg);
+  color: var(--heading-color);
   padding: 2rem 3rem;
   border-radius: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 77, 66, 0.4);
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
+
+  /* ✅ Always glowing in both themes */
+  box-shadow:
+    0 0 15px rgba(255, 77, 66, 0.4),
+    0 0 30px rgba(255, 77, 66, 0.25),
+    0 0 45px rgba(255, 77, 66, 0.15);
 
   input,
   textarea {
     width: 100%;
     padding: 1rem 1.4rem;
     border-radius: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--card-bg);
+    color: var(--heading-color);
     font-size: 1rem;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.5s, color 0.5s,
+      box-shadow 0.3s;
 
     &:focus {
       border-color: #ff4d42;
+      box-shadow: 0 0 8px rgba(255, 77, 66, 0.5);
     }
 
     &::placeholder {
-      color: #999;
+      color: var(--text-secondary);
     }
   }
 
@@ -63,15 +77,18 @@ export const FormContainer = styled.form`
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       background-color: #e63933;
+      box-shadow:
+        0 0 10px rgba(255, 77, 66, 0.6),
+        0 0 20px rgba(255, 77, 66, 0.3);
     }
   }
 
   @media (max-width: 768px) {
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem;
     input,
     textarea {
       font-size: 0.95rem;
