@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Section, CardContainer, slideInLeft } from "./style";
+import { Section, CardContainer, slideInLeft, ProductsHeading } from "./style";
 import Tamarind12 from "../../../../public/Tamarind.png";
 import CoconutImg from "../../../../public/coconut.png";
 
@@ -42,111 +42,117 @@ export default function Products() {
   };
 
   return (
-    <Section>
-      {/* 🌿 Tamarind Card */}
-      <motion.div
-        variants={slideInLeft}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.3 }}
-      >
-        <CardContainer
-          $flipped={flipped.tamarind}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          onClick={() => handleFlip("tamarind")}
+    <>
+      {" "}
+      <ProductsHeading>Products</ProductsHeading>
+      <Section>
+        {/* 🌿 Tamarind Card */}
+        <motion.div
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
         >
-          <div className="card">
-            <div className="front">
-              {/* 🍃 Floating Image */}
-              <motion.div
-                {...floatingAnimation}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  src={Tamarind12}
-                  alt="Tamarind"
-                  width={175}
-                  height={175}
-                  className="product-img"
-                />
-              </motion.div>
+          <CardContainer
+            $flipped={flipped.tamarind}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            onClick={() => handleFlip("tamarind")}
+          >
+            <div className="card">
+              <div className="front">
+                {/* 🍃 Floating Image */}
+                <motion.div
+                  {...floatingAnimation}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Image
+                    src={Tamarind12}
+                    alt="Tamarind"
+                    width={175}
+                    height={175}
+                    className="product-img"
+                  />
+                </motion.div>
 
-              <h3>Tamarind</h3>
-              <p>
-                Tangy & aromatic tamarind for authentic recipes. Naturally
-                sun-dried and hand-picked for rich flavor.
-              </p>
-              {!flipped.tamarind && <button>Know More</button>}
+                <h3>Tamarind</h3>
+                <p>
+                  Tangy & aromatic tamarind for authentic recipes. Naturally
+                  sun-dried and hand-picked for rich flavor.
+                </p>
+                {!flipped.tamarind && <button>Know More</button>}
+              </div>
+
+              <div className="back">
+                <h3>Tamarind – Detailed</h3>
+                <p>
+                  Our premium tamarind is sourced from organic farms and
+                  naturally dried to preserve flavor. Perfect for curries,
+                  chutneys, and sauces, adding that essential tang and depth to
+                  your dishes.
+                </p>
+              </div>
             </div>
+          </CardContainer>
+        </motion.div>
 
-            <div className="back">
-              <h3>Tamarind – Detailed</h3>
-              <p>
-                Our premium tamarind is sourced from organic farms and naturally
-                dried to preserve flavor. Perfect for curries, chutneys, and
-                sauces, adding that essential tang and depth to your dishes.
-              </p>
-            </div>
-          </div>
-        </CardContainer>
-      </motion.div>
-
-      {/* 🥥 Coconut Card */}
-      <motion.div
-        variants={slideInLeft}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.3 }}
-        transition={{ delay: 0.3 }}
-      >
-        <CardContainer
-          $flipped={flipped.coconut}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          onClick={() => handleFlip("coconut")}
+        {/* 🥥 Coconut Card */}
+        <motion.div
+          variants={slideInLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
+          transition={{ delay: 0.3 }}
         >
-          <div className="card">
-            <div className="front">
-              {/* 🌴 Floating Image */}
-              <motion.div
-                {...floatingAnimation}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  src={CoconutImg}
-                  alt="Roasted Coconut"
-                  width={200}
-                  height={200}
-                  className="product-img"
-                />
-              </motion.div>
+          <CardContainer
+            $flipped={flipped.coconut}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            onClick={() => handleFlip("coconut")}
+          >
+            <div className="card">
+              <div className="front">
+                {/* 🌴 Floating Image */}
+                <motion.div
+                  {...floatingAnimation}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Image
+                    src={CoconutImg}
+                    alt="Roasted Coconut"
+                    width={200}
+                    height={200}
+                    className="product-img"
+                  />
+                </motion.div>
 
-              <h3>Roasted Coconut</h3>
-              <p>
-                Crunchy roasted coconut for sweet and savory dishes. Adds a
-                tropical, nutty richness to every recipe.
-              </p>
-              {!flipped.coconut && <button>Know More</button>}
-            </div>
+                <h3>Roasted Coconut</h3>
+                <p>
+                  Crunchy roasted coconut for sweet and savory dishes. Adds a
+                  tropical, nutty richness to every recipe.
+                </p>
+                {!flipped.coconut && <button>Know More</button>}
+              </div>
 
-            <div className="back">
-              <h3>Roasted Coconut – Detailed</h3>
-              <p>
-                Our roasted coconut is made from freshly grated coconuts,
-                carefully slow-roasted for maximum flavor. Perfect for desserts,
-                curries, and snacks where texture and aroma matter most.
-              </p>
+              <div className="back">
+                <h3>Roasted Coconut – Detailed</h3>
+                <p>
+                  Our roasted coconut is made from freshly grated coconuts,
+                  carefully slow-roasted for maximum flavor. Perfect for
+                  desserts, curries, and snacks where texture and aroma matter
+                  most.
+                </p>
+              </div>
             </div>
-          </div>
-        </CardContainer>
-      </motion.div>
-    </Section>
+          </CardContainer>
+        </motion.div>
+      </Section>
+    </>
   );
 }

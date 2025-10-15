@@ -147,3 +147,22 @@ export const slideInLeft: Variants = {
     transition: { type: "spring", stiffness: 70, damping: 20 },
   },
 };
+
+export const ProductsHeading = styled.h1`
+  font-size: clamp(3rem, 6vw, 5rem); /* bigger text */
+  font-weight: 700;
+  color: var(--heading-color);
+  text-align: center;
+  margin-top: 10rem; /* margin-top instead of bottom */
+  margin-bottom: 3rem;
+
+  @media (max-width: 900px) {
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+`;
