@@ -46,7 +46,7 @@ export function Footer() {
       <span>
         Website built by{" "}
         <a
-          href="https://buildmybrand.in"
+          href="https://www.instagram.com/buil_dmybrand?igsh=eHVtNWFnZW5uOTBq"
           target="_blank"
           rel="noopener noreferrer"
         >
