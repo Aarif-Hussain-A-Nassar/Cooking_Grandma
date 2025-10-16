@@ -9,12 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@svgr/webpack": "^8.1.0",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.23.22",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-toastify": "^11.0.5",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-toastify": "^4.0.2",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "tailwindcss": "^4",

@@ -1,35 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Section, FormContainer } from "./styles";
 import { motion } from "framer-motion";
+import { useForm, ValidationError } from "@formspree/react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
+  const [state, handleSubmit] = useForm("xwprpoey"); // ✅ Your Formspree ID
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  // ✅ Toast on success
+  useEffect(() => {
+    if (state.succeeded) {
+      toast.success("Message sent successfully!", {
+        position: "bottom-left",
+        autoClose: 3000,
+      });
+      setFormData({ name: "", email: "", message: "" });
+    }
+  }, [state.succeeded]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Thank you for reaching out! We'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
     <Section>
-      {/* Animate heading when it enters the viewport */}
       <motion.h2
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.4 }} // triggers every time it's visible
+        viewport={{ once: false, amount: 0.4 }}
       >
         Get in Touch
       </motion.h2>
 
-      {/* Animate form on scroll */}
       <FormContainer
         as={motion.form}
         onSubmit={handleSubmit}
@@ -38,6 +45,7 @@ export default function Contact() {
         transition={{ duration: 0.9, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
       >
+        {/* ✅ Name Field */}
         <motion.input
           whileFocus={{ scale: 1.02, borderColor: "#ff4d42" }}
           type="text"
@@ -48,6 +56,7 @@ export default function Contact() {
           required
         />
 
+        {/* ✅ Email Field */}
         <motion.input
           whileFocus={{ scale: 1.02, borderColor: "#ff4d42" }}
           type="email"
@@ -57,7 +66,9 @@ export default function Contact() {
           onChange={handleChange}
           required
         />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
 
+        {/* ✅ Message Field */}
         <motion.textarea
           whileFocus={{ scale: 1.02, borderColor: "#ff4d42" }}
           name="message"
@@ -67,16 +78,21 @@ export default function Contact() {
           onChange={handleChange}
           required
         ></motion.textarea>
+        <ValidationError prefix="Message" field="message" errors={state.errors} />
 
+        {/* ✅ Submit Button */}
         <motion.button
           whileHover={{ scale: 1.05, backgroundColor: "#e63933" }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
           type="submit"
+          disabled={state.submitting}
         >
-          Send Message
+          {state.submitting ? "Sending..." : "Send Message"}
         </motion.button>
       </FormContainer>
+
+      <ToastContainer />
     </Section>
   );
 }
