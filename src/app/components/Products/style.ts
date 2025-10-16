@@ -91,14 +91,14 @@ export const CardContainer = styled(motion.div)<{ $flipped: boolean }>`
   }
 
   h3 {
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: #fff; /* ✅ keep white text for readability */
     margin-bottom: 0.8rem;
     transition: color 0.4s ease;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: #fff;
     opacity: 0.9;
     line-height: 1.5;
@@ -120,7 +120,7 @@ export const CardContainer = styled(motion.div)<{ $flipped: boolean }>`
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.3rem;
     transition: background-color 0.3s, color 0.3s;
 
     &:hover {

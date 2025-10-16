@@ -15,7 +15,6 @@ export default function Products() {
 
   const [isMobile, setIsMobile] = useState(false);
 
-  // ✅ Detect screen size on mount
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -23,7 +22,6 @@ export default function Products() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Floating animation config
   const floatingAnimation = useMemo(
     () => ({
       animate: { y: [0, isMobile ? -12 : -20, 0] },
@@ -41,11 +39,14 @@ export default function Products() {
     setFlipped((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+  const whatsappTamarind = `https://api.whatsapp.com/send/?phone=%2B916238908002&text=Hello,+I+would+like+to+order+Malabar+Kudumpulli.`;
+  const whatsappCoconut = `https://api.whatsapp.com/send/?phone=%2B916238908002&text=Hello,+I+would+like+to+order+Roasted+Coconut.`;
+
   return (
     <>
       <ProductsHeading>Products</ProductsHeading>
       <Section>
-        {/* 🌿 Tamarind Card */}
+        {/* Tamarind Card */}
         <motion.div
           variants={slideInLeft}
           initial="hidden"
@@ -56,16 +57,13 @@ export default function Products() {
             $flipped={flipped.tamarind}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            onClick={() => handleFlip("tamarind")}
+            onClick={() => handleFlip("tamarind")} // Flip when clicking anywhere on the card
           >
             <div className="card">
               <div className="front">
                 <motion.div
                   {...floatingAnimation}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
+                  style={{ display: "flex", justifyContent: "center" }}
                 >
                   <Image
                     src={Tamarind12}
@@ -82,12 +80,25 @@ export default function Products() {
                   sun-dried and hand-picked for rich flavor.
                 </p>
 
-                {!flipped.tamarind && (
-                  <div className="button-group">
-                    <button>Know More</button>
-                    <button>Buy Now</button>
-                  </div>
-                )}
+                <div className="button-group">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent flipping
+                      handleFlip("tamarind"); // Flip the card
+                    }}
+                  >
+                    Know More
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent flipping
+                      window.open(whatsappTamarind, "_blank"); // WhatsApp
+                    }}
+                  >
+                    Buy Now
+                  </button>
+                </div>
               </div>
 
               <div className="back">
@@ -103,7 +114,7 @@ export default function Products() {
           </CardContainer>
         </motion.div>
 
-        {/* 🥥 Coconut Card */}
+        {/* Roasted Coconut Card */}
         <motion.div
           variants={slideInLeft}
           initial="hidden"
@@ -115,16 +126,13 @@ export default function Products() {
             $flipped={flipped.coconut}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            onClick={() => handleFlip("coconut")}
+            onClick={() => handleFlip("coconut")} // Flip when clicking anywhere on the card
           >
             <div className="card">
               <div className="front">
                 <motion.div
                   {...floatingAnimation}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
+                  style={{ display: "flex", justifyContent: "center" }}
                 >
                   <Image
                     src={CoconutImg}
@@ -141,12 +149,25 @@ export default function Products() {
                   tropical, nutty richness to every recipe.
                 </p>
 
-                {!flipped.coconut && (
-                  <div className="button-group">
-                    <button>Know More</button>
-                    <button>Buy Now</button>
-                  </div>
-                )}
+                <div className="button-group">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleFlip("coconut"); // Flip the card
+                    }}
+                  >
+                    Know More
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(whatsappCoconut, "_blank");
+                    }}
+                  >
+                    Buy Now
+                  </button>
+                </div>
               </div>
 
               <div className="back">
