@@ -10,16 +10,21 @@ const FooterContainer = styled.footer`
   color: var(--text-secondary);
   font-family: "Red Hat Display", sans-serif;
   border-top: 1px solid rgba(128, 128, 128, 0.2);
-  transition: background-color 0.3s, color 0.3s;
+  /* match body’s timing for smoother sync */
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 
   a {
     color: #ff4d42;
     text-decoration: none;
     font-weight: 700;
-    transition: filter 0.3s ease;
+    text-shadow: 0 0 8px rgba(255, 77, 66, 0.6); /* subtle glow */
+    transition: text-shadow 0.3s ease, filter 0.3s ease;
 
     &:hover {
       filter: brightness(1.2);
+      text-shadow:
+        0 0 10px rgba(255, 77, 66, 0.9),
+        0 0 20px rgba(255, 77, 66, 0.5);
     }
   }
 
@@ -35,11 +40,13 @@ const FooterContainer = styled.footer`
 export function Footer() {
   return (
     <FooterContainer>
-      <span>© {new Date().getFullYear()} Cooking Grandma. All rights reserved.</span>
+      <span>
+        © {new Date().getFullYear()} Cooking Grandma. All rights reserved.
+      </span>
       <span>
         Website built by{" "}
         <a
-          href="https://buildmybrand.in" // change link if needed
+          href="https://buildmybrand.in"
           target="_blank"
           rel="noopener noreferrer"
         >
