@@ -1,5 +1,4 @@
 import About from "../About/About";
-import Bottom from "../Bottom/Bottom";
 import Contact from "../Contact/Contact";
 import { Hero } from "../Hero/Hero";
 import Products from "../Products/Products";
@@ -13,8 +12,7 @@ export const Main = () => {
       <About />
       <Products />
       <Who />
-      <Contact/>
-      <Bottom />
+      <Contact />
     </MainContainer>
   );
 };
