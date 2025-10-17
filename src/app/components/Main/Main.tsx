@@ -1,4 +1,5 @@
 import About from "../About/About";
+import Bottom from "../Bottom/Bottom";
 import Contact from "../Contact/Contact";
 import { Hero } from "../Hero/Hero";
 import Products from "../Products/Products";
@@ -13,6 +14,7 @@ export const Main = () => {
       <Products />
       <Who />
       <Contact/>
+      <Bottom />
     </MainContainer>
   );
 };
