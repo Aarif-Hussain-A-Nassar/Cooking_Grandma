@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <Section>
+    <Section id="contact">
       <motion.h2
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}

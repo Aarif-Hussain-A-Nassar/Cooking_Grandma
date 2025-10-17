@@ -246,10 +246,10 @@ export function Footer() {
       <MiddleSection>
         <h4>Quick Links</h4>
         <div className="links">
-          <Link href="/">Home</Link>
-          <Link href="/products">Products</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="#home">Home</Link>
+          <Link href="#products">Products</Link>
+          <Link href="#who">About</Link>
+          <Link href="#contact">Contact</Link>
         </div>
       </MiddleSection>
 

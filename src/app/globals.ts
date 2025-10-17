@@ -35,7 +35,9 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
   }
-
+html {
+  scroll-behavior: smooth;
+}
   body {
     font-size: 1.6rem;
     font-family: 'Red Hat Display', sans-serif;

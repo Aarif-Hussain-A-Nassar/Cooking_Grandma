@@ -61,15 +61,20 @@ export function Header() {
       {/* Nav + Theme Toggle + Hamburger */}
       <div className="right-section">
         <nav className={isActive ? "active" : ""}>
-          {["Home", "About", "Products", "Contact"].map((item, i) => (
+          {[
+            { name: "Home", id: "home" },
+            { name: "Products", id: "products" },
+            { name: "About", id: "who" },
+            { name: "Contact", id: "contact" },
+          ].map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.1, color: "#E31F71" }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Link href={`#${item.toLowerCase()}`} onClick={closeMenu}>
-                {item}
+              <Link href={`#${item.id}`} onClick={closeMenu}>
+                {item.name}
               </Link>
             </motion.div>
           ))}

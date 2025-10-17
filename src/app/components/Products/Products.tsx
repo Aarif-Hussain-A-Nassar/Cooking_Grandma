@@ -44,7 +44,7 @@ export default function Products() {
 
   return (
     <>
-      <ProductsHeading>Products</ProductsHeading>
+      <ProductsHeading id="products">Products</ProductsHeading>
       <Section>
         {/* Tamarind Card */}
         <motion.div
