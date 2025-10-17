@@ -57,7 +57,19 @@ export function Hero() {
           <motion.p variants={textVariants}>
             Taste the authentic flavors of Kerala with our premium range of
             naturally crafted ingredients — made with love by{" "}
-            <b style={{ color: "#ff4d42" }}>Cooking Grandma</b>.
+            <a
+              href="https://www.instagram.com/buil_dmybrand?igsh=eHVtNWFnZW5uOTBq"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#ff4d42",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              Cooking Grandma
+            </a>
+            .
           </motion.p>
 
           <motion.button
@@ -72,6 +84,10 @@ export function Hero() {
               fontSize: "1.25rem",
               borderRadius: "12px",
               cursor: "pointer",
+            }}
+            onClick={() => {
+              const productsSection = document.getElementById("products");
+              productsSection?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Explore Products
