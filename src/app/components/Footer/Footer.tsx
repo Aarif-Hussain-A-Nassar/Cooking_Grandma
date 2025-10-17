@@ -194,7 +194,7 @@ export function Footer() {
         <p>Follow us on</p>
         <div className="icons">
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/cookinggrandma_?igsh=MXFnaTdqM3Q2Y2c5dg=="
             target="_blank"
             rel="noopener noreferrer"
           >
