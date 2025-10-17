@@ -12,7 +12,7 @@ export const Main = () => {
       <About />
       <Products />
       <Who />
-      <Contact/>
+      <Contact />
     </MainContainer>
   );
 };
