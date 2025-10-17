@@ -24,10 +24,20 @@ export function Header() {
 
   useEffect(() => {
     const html = document.getElementsByTagName("html")[0];
-    html.classList.add("light"); // default
-    setIsLight(true);
-  }, []);
 
+    // Check screen width to set default theme
+    if (window.innerWidth <= 768) {
+      // Mobile - Light theme
+      html.classList.add("light");
+      html.classList.remove("dark");
+      setIsLight(true);
+    } else {
+      // Desktop - Dark theme
+      html.classList.add("dark");
+      html.classList.remove("light");
+      setIsLight(false);
+    }
+  }, []);
   return (
     <Container className="header-fixed">
       {/* Logo */}
