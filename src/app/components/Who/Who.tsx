@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Section, Content, ImageWrapper } from "./styles";
 import HeroImage from "../../../../public/HeroImage.png";
-
+import Whos from "../../../../public/Who.png"
 export default function Who() {
   return (
     <Section id="who">
@@ -18,7 +18,7 @@ export default function Who() {
             viewport={{ amount: 0.3 }}
           >
             <Image
-              src={HeroImage}
+              src={Whos}
               alt="Cooking Grandma"
               width={500}
               height={500}
