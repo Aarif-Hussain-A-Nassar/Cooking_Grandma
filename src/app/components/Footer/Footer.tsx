@@ -265,7 +265,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            BuildMyBrand
+            Two Dots Official
           </a>
         </span>
       </RightSection>
