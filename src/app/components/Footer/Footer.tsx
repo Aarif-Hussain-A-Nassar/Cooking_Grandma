@@ -261,7 +261,7 @@ export function Footer() {
         <span>
           Website built by{" "}
           <a
-            href="https://www.instagram.com/buil_dmybrand?igsh=eHVtNWFnZW5uOTBq"
+            href="https://www.instagram.com/twodotsofficial_/"
             target="_blank"
             rel="noopener noreferrer"
           >
