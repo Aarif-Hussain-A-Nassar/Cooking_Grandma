@@ -58,7 +58,7 @@ export function Hero() {
             Taste the authentic flavors of Kerala with our premium range of
             naturally crafted ingredients — made with love by{" "}
             <a
-              href="https://www.instagram.com/buil_dmybrand?igsh=eHVtNWFnZW5uOTBq"
+              href="https://www.instagram.com/twodots.dev"
               target="_blank"
               rel="noopener noreferrer"
               style={{
